@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jingdl.emoji.FaceLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/faceRelativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/rl_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#e5e5e5" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="2dip"
+                android:layout_weight="1"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/em_bg_editinput"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_sendmessage"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:minHeight="40dip"
+                    android:paddingLeft="5dip"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/btn_face"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/em_ic_smiley" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/em_btn_send"
+                android:text="发送"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000000" />
+
+        <RelativeLayout
+            android:id="@+id/ll_facechoose"
+            android:layout_width="fill_parent"
+            android:layout_height="200dip"
+            android:visibility="gone">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_contains"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="6dip"
+                android:gravity="center"
+                android:orientation="horizontal" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</com.jingdl.emoji.FaceLayout>
