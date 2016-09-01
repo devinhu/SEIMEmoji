@@ -9,39 +9,38 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.emojidemo.MainActivity" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-         <com.suneee.emoji.EmojiEditText
-            android:id="@+id/edit_emoji"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
-         
-        <com.suneee.emoji.EmojiKeyboard
-            android:id="@+id/layout_emoji"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
-    </LinearLayout>
+    <com.jingdl.emoji.EmojiLayout
+        android:id="@+id/emojiLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
  
  
- Activity中调用：
- edit_emoji = (EmojiEditText)findViewById(R.id.edit_emoji);
-        EmojiKeyboard layout_emoji = (EmojiKeyboard)findViewById(R.id.layout_emoji);
-        layout_emoji.setEventListener(new EventListener() {
-			
-			@Override
-			public void onEmojiSelected(String res) {
-				EmojiKeyboard.input(edit_emoji, res);
-			}
-			
-			@Override
-			public void onBackspace() {
-				EmojiKeyboard.backspace(edit_emoji);
-			}
-		});
+Activity中调用：
+EmojiLayout emojiLayout = getViewById(R.id.emojiLayout);
+emojiLayout.setOnResultListener(new View.OnClickListener() {
+	@Override
+	public void onClick(View v) {
+		emojiLayout.dimiss();
+		comment = v.getTag().toString();
+	}
+});
+
+@Override
+public boolean dispatchTouchEvent(MotionEvent event) {
+	if(event.getAction() == MotionEvent.ACTION_DOWN){
+		//点击非emojiLayout区域隐藏emojiLayout
+		if(!emojiLayout.inRangeOfView(event)){
+			emojiLayout.dimiss();
+			//隐藏键盘，自己写一个吧
+			CommonUtils.hideKeyboard(ArticleDetailActivity.this);
+		}
+	}
+	return super.dispatchTouchEvent(event);
+}
+
+
+TextView显示emoji表情
+tv_item_content.setText(FaceUtil.getInstace(mContext).getExpressionString(mContext, mArticleDetailData.getContent()));
