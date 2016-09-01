@@ -1,9 +1,10 @@
   
 极速集成Emoji使用指南
   
-##页面布局布局：
+## 页面布局布局：
 
-```javascript
+
+``` python
      <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -21,11 +22,11 @@
             android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
- ```
+```
  
-##Activity中调用：
+## Activity中调用：
 
-```javascript
+``` python
     EmojiLayout emojiLayout = getViewById(R.id.emojiLayout);
     emojiLayout.setOnResultListener(new View.OnClickListener() {
         @Override
@@ -49,16 +50,16 @@
     }
 ```
 
-##TextView显示emoji表情
+## TextView显示emoji表情
 
-```javascript
+
+``` python
     tv_item_content.setText(FaceUtil.getInstace(mContext).getExpressionString(mContext, Data.getContent()));
 ```
 
-##结语
+## 结语
 
 * 看到这里，估计您和您的小伙伴们都惊呆了吧！赶快动手试试吧！
-
 
 * 我改变不了这个世界！这个世界也休想将我改变！
 
