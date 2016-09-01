@@ -1,4 +1,8 @@
-  布局：
+  
+ Emoji使用指南
+  
+ ##页面布局布局：
+ ```javascript
  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,9 +20,10 @@
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
+ ```
  
- 
-Activity中调用：
+##Activity中调用：
+```javascript
 EmojiLayout emojiLayout = getViewById(R.id.emojiLayout);
 emojiLayout.setOnResultListener(new View.OnClickListener() {
 	@Override
@@ -40,7 +45,9 @@ public boolean dispatchTouchEvent(MotionEvent event) {
 	}
 	return super.dispatchTouchEvent(event);
 }
+```
 
-
-TextView显示emoji表情
-tv_item_content.setText(FaceUtil.getInstace(mContext).getExpressionString(mContext, mArticleDetailData.getContent()));
+##TextView显示emoji表情
+```javascript
+tv_item_content.setText(FaceUtil.getInstace(mContext).getExpressionString(mContext, Data.getContent()));
+```
